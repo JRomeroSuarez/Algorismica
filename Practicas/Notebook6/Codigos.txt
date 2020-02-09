@@ -1,0 +1,19 @@
+Ex2
+def minMax(k,nums):
+    if k in nums:
+        return (k, k)
+    elif k < nums[0]:
+        return (-1, nums[0])
+    elif k > nums[-1]:
+        return (nums[-1], -1)
+    else:
+        while len(nums) > 2:
+            granPrimeraMeitat = nums[:len(nums)//2][-1]
+            petitSegonaMeitat = nums[len(nums)//2:][0]
+            if k > granPrimeraMeitat and k < petitSegonaMeitat:
+                return (granPrimeraMeitat, petitSegonaMeitat)
+            elif k < granPrimeraMeitat:
+                nums = nums[:len(nums)//2]
+            else:
+                nums = nums[len(nums)//2:]
+        return (granPrimeraMeitat, petitSegonaMeitat)

@@ -1,0 +1,94 @@
+# Substitueix la comanda pass per la teva solució
+Ex 1
+def triaPatro(llista, patro):
+    """
+Donada una llista de paraules  i un patró,
+aquesta funció retorna totes les paraules que segueixen el patró.
+:param llista, una llista de paraules
+:param patro, una paraula que marca el patró per escollir les paraules
+:return llistaresultat, una llista amb les paraules escollides
+"""
+    dicc={}
+    for i in llista:
+        if len(i) == len(patro):
+            for j in range(len(i)): # es la longitud de la palabra
+                dicc.append(j) 
+                print(j)
+    
+    return llistaResultat
+
+assert(triaPatro(['gag','sos','mim','gat','gos'], 'rap')==['gat','gos'])
+ex2.1
+def xifresilletresOrdSel(llista):
+    """
+    Donada una llista, aquesta funció la retorna amb les xifres 
+    al davant i les cadenes de lletres al darrera
+    :param llista: la llista original
+    :return llista: la llista reordenada
+    """
+    n = len(llista)
+    for i in range(0,n-1):
+        k = i
+        t = llista[i]
+        for j in range(i,n):
+            if llista[j]<t:
+                k = j
+                t = llista[j]
+        llista[k] = llista[i]
+        llista[i] = t
+        
+        
+    return llista
+
+assert(xifresilletresOrdSel(["345","A","555","234","aaaaaa","666"]
+                           )==['234', '345', '555', '666', 'A', 'aaaaaa'])
+------------------------------------------------------------------------------------------------------------------------------
+ex 2.2
+def xifresilletresOrdSel(llista):
+    menys=[]
+    igual=[]
+    major=[]
+    
+    if len(llista)>1:
+        pivot=llista[0]
+        for i in llista:
+            if i< pivot:
+                menys.append(i)
+            if i == pivot:
+                igual.append(i)
+            if i > pivot:
+                major.append(i)
+        return xifresilletresOrdSel(menys)+igual+xifresilletresOrdSel(major)
+    else:
+        return llista
+assert(xifresilletresOrdSel(["345","A","555","234","aaaaaa","666"]
+                           )==['234', '345', '555', '666', 'A', 'aaaaaa'])
+------------------------------------------------------------------------------------------------------------------------------     
+# Substitueix la comanda pass per la teva solució
+import math
+def karatsuba(x,y):
+    if (len(str(x)) or (y<10)):
+        return x*y
+    else:
+        if x>y:
+            divisio = pow(10,len(str(x)) /2)
+        else:
+            divisio = pow(10,len(str(y)) /2)
+    a = x // divisio
+    b = x % divisio
+    c = y // divisio
+    d = y % divisio
+    ac= karatsuba(a,c)
+    bd = karatsuba(b,d)
+   
+    prod= (ac*pow(divisio,2 + bd +(ef-bd-ac)*divider))
+            
+    """
+    Aquesta funció realitza la multiplicació de x,y de karatsuba en base 10
+    :param x,y nombres a multiplicar
+    :return el seu producte
+    """
+    
+    
+    return prod
+assert(karatsuba(123,4578)==563094)                      
